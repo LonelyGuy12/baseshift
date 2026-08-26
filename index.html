@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaseShift - Number Base Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BaseShift</h1>
+            <p>Real-time Number Base Converter</p>
+        </header>
+
+        <main>
+            <div class="presets">
+                <button class="chip" data-from="10" data-to="2">Dec → Bin</button>
+                <button class="chip" data-from="10" data-to="16">Dec → Hex</button>
+                <button class="chip" data-from="2" data-to="10">Bin → Dec</button>
+                <button class="chip" data-from="16" data-to="10">Hex → Dec</button>
+                <button class="chip" data-from="10" data-to="8">Dec → Oct</button>
+                <button class="chip" data-from="8" data-to="10">Oct → Dec</button>
+            </div>
+
+            <div class="converter-card">
+                <div class="controls">
+                    <div class="input-group">
+                        <label for="from-base">From Base</label>
+                        <input type="number" id="from-base" min="2" max="36" value="10">
+                    </div>
+                    
+                    <button id="swap-btn" class="icon-btn" aria-label="Swap bases" title="Swap bases">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 10v12"/>
+                            <path d="M11 18l-4 4-4-4"/>
+                            <path d="M17 14V2"/>
+                            <path d="M21 6l-4-4-4 4"/>
+                        </svg>
+                    </button>
+
+                    <div class="input-group">
+                        <label for="to-base">To Base</label>
+                        <input type="number" id="to-base" min="2" max="36" value="2">
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <label for="number-input">Number</label>
+                    <input type="text" id="number-input" placeholder="Enter number..." autocomplete="off" spellcheck="false">
+                    <div id="error-message" class="error-msg"></div>
+                </div>
+
+                <div class="result-section">
+                    <label>Result</label>
+                    <div id="result-display" class="result-display">0</div>
+                </div>
+            </div>
+
+            <div class="steps-section" id="steps-container">
+                <button class="collapsible" id="toggle-steps">
+                    <span>Show Conversion Steps</span>
+                    <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="steps-content" id="steps-content">
+                    <!-- Steps will be injected here via JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
